@@ -1,0 +1,406 @@
+{
+  "info": {
+    "name": "CityNext Appointments API",
+    "description": "Test collection for the CityNext Appointments booking system. \n\n⚠️ IMPORTANT: This application simulates running in the year 2075! \n\n📅 Current simulated date: July 21, 2075 \n\n• Valid appointments must be scheduled for dates AFTER July 21, 2075\n• Dates before July 21, 2075 will be rejected as 'past dates'\n• Public holidays (Christmas, New Year, etc.) are still blocked\n• All dates should use the format YYYY-MM-DD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Valid Appointment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"visit_date\": \"2075-08-15\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Another Valid Appointment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Jane\",\n  \"last_name\": \"Smith\",\n  \"visit_date\": \"2075-08-20\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Public Holiday (Christmas)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Alice\",\n  \"last_name\": \"Johnson\",\n  \"visit_date\": \"2075-12-25\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Public Holiday (New Year)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Bob\",\n  \"last_name\": \"Wilson\",\n  \"visit_date\": \"2075-01-01\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Duplicate Appointment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Charlie\",\n  \"last_name\": \"Brown\",\n  \"visit_date\": \"2075-08-15\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Past Date",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"David\",\n  \"last_name\": \"Miller\",\n  \"visit_date\": \"2075-07-15\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid Date Format",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Eve\",\n  \"last_name\": \"Davis\",\n  \"visit_date\": \"15-06-2075\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Missing First Name",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"last_name\": \"Garcia\",\n  \"visit_date\": \"2075-08-10\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Missing Last Name",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Frank\",\n  \"visit_date\": \"2075-08-15\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Missing Visit Date",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Grace\",\n  \"last_name\": \"Lee\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Empty Request Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid JSON",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Invalid\",\n  \"last_name\": \"JSON\",\n  \"visit_date\": \"2075-09-01\"\n  // Missing closing brace"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Empty String Fields",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"\",\n  \"last_name\": \"\",\n  \"visit_date\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Weekend Appointment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Helen\",\n  \"last_name\": \"Taylor\",\n  \"visit_date\": \"2075-08-14\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Very Long Names",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"VeryLongFirstNameThatExceedsNormalLengthToTestDatabaseConstraints\",\n  \"last_name\": \"VeryLongLastNameThatExceedsNormalLengthToTestDatabaseConstraints\",\n  \"visit_date\": \"2075-09-15\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/appointments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
